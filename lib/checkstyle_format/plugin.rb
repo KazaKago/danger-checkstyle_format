@@ -70,11 +70,13 @@ module Danger
 
         if issue.severity == "error"
 #           fail(issue.message, file: file, line: line)
-          warn(issue.message, file: file, line: line) # change to warn
+          warn(issue.message) # change to warn & disable inline_mode
         elsif issue.severity == "warning"
-          warn(issue.message, file: file, line: line)
+#           warn(issue.message, file: file, line: line)
+          warn(issue.message) # disable inline_mode
         else
-          message(issue.message, file: file, line: line)
+#           message(issue.message, file: file, line: line)
+          message(issue.message) # disable inline_mode
         end
       end
     end
