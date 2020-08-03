@@ -69,7 +69,8 @@ module Danger
         line = inline_mode && !issue.line.nil? && issue.line > 0 ? issue.line : nil
 
         if issue.severity == "error"
-          fail(issue.message, file: file, line: line)
+#           fail(issue.message, file: file, line: line)
+          warn(issue.message, file: file, line: line) # change to warn
         elsif issue.severity == "warning"
           warn(issue.message, file: file, line: line)
         else
