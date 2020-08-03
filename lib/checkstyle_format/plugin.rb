@@ -25,7 +25,7 @@ module Danger
     # Report checkstyle warnings
     #
     # @return   [void]
-    def report(file, inline_mode = true)
+    def report(file, inline_mode = false)
       raise "Please specify file name." if file.empty?
       raise "No checkstyle file was found at #{file}" unless File.exist? file
       errors = parse(File.read(file))
@@ -36,7 +36,7 @@ module Danger
     # Report checkstyle warnings by XML text
     #
     # @return   [void]
-    def report_by_text(text, inline_mode = true)
+    def report_by_text(text, inline_mode = false)
       raise "Please specify xml text." if text.empty?
       errors = parse(text)
 
